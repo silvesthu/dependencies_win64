@@ -307,6 +307,8 @@
 #     define BOOST_COMPILER_VERSION 14.0
 #   elif _MSC_VER < 1920
 #     define BOOST_COMPILER_VERSION 14.1
+#   elif _MSC_VER < 1930
+#     define BOOST_COMPILER_VERSION 14.2
 #   else
 #     define BOOST_COMPILER_VERSION _MSC_VER
 #   endif
@@ -315,9 +317,7 @@
 #  define BOOST_COMPILER "Microsoft Visual C++ version " BOOST_STRINGIZE(BOOST_COMPILER_VERSION)
 #endif
 
-//
-// last known and checked version is 19.10.25017 (VC++ 2017):
-#if (_MSC_VER > 1910)
+#if (_MSC_VER >= 1930)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
